@@ -13,6 +13,7 @@ defmodule Pensieve.Memories.Memory do
   def changeset(memory, attrs) do
     memory
     |> cast(attrs, [:title, :content])
-    |> validate_required([:title, :content])
+    |> validate_required([:title])
+    |> validate_length(:title, max: 100)
   end
 end
