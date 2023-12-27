@@ -51,7 +51,8 @@ defmodule Pensieve.MixProject do
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
       {:plug_cowboy, "~> 2.5"},
-      {:faker, "~> 0.17.0"}
+      {:faker, "~> 0.17.0"},
+      {:dialyxir, "~> 1.4", only: [:dev, :test], runtime: false}
     ]
   end
 
