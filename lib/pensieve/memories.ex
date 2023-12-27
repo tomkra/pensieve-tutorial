@@ -11,6 +11,14 @@ defmodule Pensieve.Memories do
   @spec get_memory!(id) :: %Memory{}
   def get_memory!(id), do: Repo.get!(Memory, id)
 
+  @spec fetch_memory(id) :: {:ok, %Memory{}} | {:error, atom}
+  def fetch_memory(id) do
+    case Repo.get(Memory, id) do
+      %Memory{} = memory -> {:ok, memory}
+      nil -> {:error, :not_found}
+    end
+  end
+
   @spec change_memory(%Memory{}, map) :: %Ecto.Changeset{}
   def change_memory(%Memory{} = memory, attrs \\ %{}) do
     Memory.changeset(memory, attrs)
