@@ -1,4 +1,5 @@
 defmodule PensieveWeb.API.MemoryJSON do
+  alias Pensieve.Memories
   alias Pensieve.Memories.Memory
 
   def index(%{memories: memories}) do
